@@ -6,7 +6,6 @@ set shiftwidth=2
 
 "エスケープを打ちやすく
 "移動を少し大きく
-inoremap <C-j> <esc>
 noremap <S-j> 10j
 noremap <S-h> 10h
 noremap <S-k> 10k
@@ -23,6 +22,9 @@ set paste
 "移動
 noremap <C-w>h 5<C-w><
 noremap <C-w>l 5<C-w>>
+
+"展開
+noremap zo v<S-g>zO
 
 "######NeoBundle##########
 "viと互換しない
@@ -42,7 +44,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
+
 NeoBundle 'ekalinin/Dockerfile.vim'
+
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 
 call neobundle#end()
 
@@ -57,7 +64,11 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3 "キャッシュされ�
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr>x neocomplete#smart_close_popup()."\<C-h>"
 
-autocmd BufNewFile *.rb 0r ~/.vim/template/ruby.txt
+" ruby
+au BufNewFile *.rb 0r ~/.vim/template/ruby.txt
+
+" markdown
+au BufRead,BufNewFile *.md set filetype=markdown
 
 "########タグジャンプ#######
 set tags+=./tags
@@ -66,7 +77,7 @@ nnoremap <F4> :stj <C-R>=expand('<cword>')<CR><CR> <C-w><S-j>
 " setting gtags 
 nmap <C-g> :Gtags -g
 nmap <C-a> :Gtags -f %<CR>
-nmap <C-s> :Gtags <C-r><C-w><CR>
+nmap <C-c> :GtagsCursor<CR>
 nmap <C-k> :Gtags -r <C-r><C-w><CR>
 nmap <C-l> :cn<CR>
 nmap <C-h> :cp<CR>
