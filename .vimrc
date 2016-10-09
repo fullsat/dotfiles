@@ -63,3 +63,11 @@ autocmd BufNewFile *.rb 0r ~/.vim/template/ruby.txt
 set tags+=./tags
 nnoremap <F4> :stj <C-R>=expand('<cword>')<CR><CR> <C-w><S-j>
 
+" setting gtags 
+nmap <C-g> :Gtags -g
+nmap <C-a> :Gtags -f %<CR>
+nmap <C-s> :Gtags <C-r><C-w><CR>
+nmap <C-k> :Gtags -r <C-r><C-w><CR>
+nmap <C-l> :cn<CR>
+nmap <C-h> :cp<CR>
+
