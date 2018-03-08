@@ -2,10 +2,17 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="michelebologna"
 plugins=(git ruby bundler rails)
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 source $ZSH/oh-my-zsh.sh
 
 source $HOME/.zsh.git
-fpath=(~/.zsh/zsh-completins/src ${fpath})
+fpath=(/usr/local/share/zsh-completins/ ${fpath})
 
-alias unity="export MESA_GL_VERSION_OVERRIDE=3.2; /opt/Unity/Editor/Unity"
+setopt auto_menu 
+setopt magic_equal_subst 
+setopt print_eight_bit 
+setopt globdots 
+setopt list_packed
+bindkey "^I" menu-complete
+bindkey -v
+
+alias ll="ls -l"
