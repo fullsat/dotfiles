@@ -83,3 +83,6 @@ setopt hist_verify
 
 alias ll="ls -l"
 alias po="popd"
+
+# 環境依存はzshrc.localを読み込む
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
