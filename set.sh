@@ -1,8 +1,10 @@
 #!/bin/bash
 
 #brew install zsh-completions
-#mkdir -p ~/.zsh/prompt/
-#wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/gitfast/git-prompt.sh
+if [ ! -e  ~/.zsh/prompt/git-prompt.sh ]; then
+  mkdir -p ~/.zsh/prompt/
+  cd ~/.zsh/prompt/ && wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/gitfast/git-prompt.sh 
+fi
 
 BACKUPDATE=$(date +%Y%m%d%H%M%S)
 BASEDIR="$(cd $(dirname $0) && pwd)"
