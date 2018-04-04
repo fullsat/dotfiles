@@ -21,11 +21,11 @@ function setFile() {
   local SRCFILE=$1
   local DSTFILE=$2
 
-  if [ ! -e "$DSTFILE" ];then
-    linkFile $SRCFILE $DSTFILE
-  elif [ -L "$DSTFILE" ]; then
-    echo "$DSTFILE already exists"
-  else
+	if [ -L "$DSTFILE" ]; then
+		echo "$DSTFILE already exists"
+	elif [ ! -e "$DSTFILE" ];then
+			linkFile $SRCFILE $DSTFILE
+	else
     if [ -e "${DSTFILE}.${BACKUPDATE}" ]; then
       echo "${DSTFILE} already exists"
     else

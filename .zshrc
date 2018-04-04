@@ -12,16 +12,17 @@ prompt_custom() {
     case ${UID} in
         0)
             PROMPT="%B%{[31m%}%~%{[m%}%b $git_branch
-$ "
+# "
             PROMPT2="%B%{[31m%}%_%{[m%}%b> "
             SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
+
             ;;
         *)
-            PROMPT="%{[34m%}%n@%m%{[m%}:%{[33m%}%~%{[m%} $git_branch
+            PROMPT="%{[32m%}%n@%m%{[m%}:%{[33m%}%~%{[m%} $git_branch
 $ "
-            PROMPT2="%{[34m%}%_%{[m%}> "
+            PROMPT2="%{[32m%}%_%{[m%}> "
             # RPROMPT="[%{[33m%}%*%{[m%}]"
-            SPROMPT="%{[34m%}%r is correct? [n,y,a,e]:%{[m%} "
+            SPROMPT="%{[32m%}%r is correct? [n,y,a,e]:%{[m%} "
             ;;
     esac
 }
@@ -36,12 +37,28 @@ precmd() {
 autoload -U colors
 colors
 
+# zsh 依存のコマンドを使う
+autoload -U zmv
+alias mmv='noglob zmv -W'
+
 ########
 
-# 履歴
+## 履歴 ##
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
+
+# 直前と同じコマンドラインはヒストリに追加しない
+setopt hist_ignore_dups
+
+# ヒストリを呼び出してから実行する間に一旦編集可能
+setopt hist_verify
+
+# 履歴の共有
+setopt share_history
+
+# 履歴ファイルに時刻を記録
+setopt extended_history
 
 ## 補完 ##
 # デフォルトの補完機能
@@ -68,18 +85,6 @@ setopt auto_cd
 
 # バックグラウンドジョブが終了したらすぐに知らせる。
 setopt no_tify
-
-# 履歴の共有
-setopt share_history
-
-# 履歴ファイルに時刻を記録
-setopt extended_history
-
-# 直前と同じコマンドラインはヒストリに追加しない
-setopt hist_ignore_dups
-
-# ヒストリを呼び出してから実行する間に一旦編集可能
-setopt hist_verify
 
 alias ll="ls -l"
 alias po="popd"
