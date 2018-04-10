@@ -37,7 +37,7 @@ function setFile() {
   fi
 }
 
-for f in ".zshrc" ".tmux.conf";
+for f in ".zshrc" ".tmux.conf" ".gitconfig";
 do
   setFile "$BASEDIR/$f" "$HOME/$f"
 done
