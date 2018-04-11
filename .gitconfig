@@ -1,5 +1,13 @@
 [alias]
-  vg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  ga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  st = status
+  vlog = log --pretty=format:\"%C(red)%h%Creset %C(cyan)<%an>%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset\" --abbrev-commit --date=relative
+  vg = !git vlog
+  glog = !git vlog --graph
+  ga = !git glog --all
+  
+  st = status -s -b
+  stat = status
   ci = commit
+  co = checkout
+  br = branch
+  ls = ls-files
+  fe = fetch -p
