@@ -2,7 +2,7 @@
 
 #brew install zsh-completions
 BACKUPDATE=$(date +%Y%m%d%H%M%S)
-BASEDIR="$(cd $(dirname $0) && pwd)"
+BASEDIR="$(cd $(dirname $0) && pwd)/.."
 
 if [ ! -e  ~/.zsh/prompt/git-prompt.sh ]; then
   mkdir -p ~/.zsh/prompt/
