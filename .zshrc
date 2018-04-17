@@ -11,7 +11,7 @@ prompt_custom() {
 
     case ${UID} in
         0)
-            PROMPT="%B%{[31m%}%~%{[m%}%b $git_branch
+            PROMPT="%{[32m%}%m%B%{[31m%}%: ~%{[m%}%b $git_branch
 # "
             PROMPT2="%B%{[31m%}%_%{[m%}%b> "
             SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
