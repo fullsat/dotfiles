@@ -51,6 +51,9 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 
+# HTML 関係のプラグイン
+NeoBundle 'surround.vim'
+
 call neobundle#end()
 
 filetype plugin indent on

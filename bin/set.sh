@@ -3,21 +3,6 @@
 BACKUPDATE=$(date +%Y%m%d%H%M%S)
 BASEDIR="$(cd $(dirname $0) && pwd)/.."
 
-
-# zshの追加補間
-echo "[$(date)] install zsh-completions"
-if [ "$(uname)" == "Darwin" ];then
-  brew install zsh-completions
-fi
-
-# コマンドラインにgit の情報を表示させる
-echo "[$(date)] install git-prompt"
-if [ ! -e  ~/.zsh/prompt/git-prompt.sh ]; then
-  mkdir -p ~/.zsh/prompt/
-  cd ~/.zsh/prompt/ && wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/plugins/gitfast/git-prompt.sh 
-  cd $BASEDIR
-fi
-
 # ホームディレクトリにシンボリックリンクを貼る
 echo "[$(date)] symlink dotfiles"
 function linkFile(){
@@ -49,17 +34,8 @@ function setFile() {
   fi
 }
 
-for f in ".zshrc" ".tmux.conf" ".gitconfig";
+for f in ".zshrc" ".tmux.conf" ".gitconfig" ".vimrc";
 do
   setFile "$BASEDIR/$f" "$HOME/$f"
 done
-
-# NeoBundleをインストール
-echo "$(date) install neobundle"
-if [ ! -e "~/.vim/bin/" ];then
-  mkdir -p ~/.vim/bin/
-fi
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > ~/.vim/bin/install.sh
-sh ~/.vim/bin/install.sh
-
 
