@@ -88,6 +88,7 @@ setopt no_tify
 
 alias ll="ls -l"
 alias po="popd"
+alias hism='(){ history -im "$1" 1}'
 
 # 環境依存はzshrc.localを読み込む
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
