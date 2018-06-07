@@ -3,6 +3,7 @@ set tabstop=2
 set autoindent
 set expandtab
 set shiftwidth=2
+set encoding=utf-8
 
 "エスケープを打ちやすく
 "移動を少し大きく

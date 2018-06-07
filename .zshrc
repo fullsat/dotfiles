@@ -87,6 +87,7 @@ setopt auto_cd
 setopt no_tify
 
 alias ll="ls -l"
+alias la="ls -la"
 alias po="popd"
 alias hism='(){ history -im "$1" 1}'
 
