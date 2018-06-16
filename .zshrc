@@ -86,6 +86,7 @@ setopt auto_cd
 # バックグラウンドジョブが終了したらすぐに知らせる。
 setopt no_tify
 
+alias ls="ls --color=auto"
 alias ll="ls -l"
 alias la="ls -la"
 alias po="popd"
