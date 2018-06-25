@@ -18,7 +18,6 @@ noremap <S-u> <C-r>
 "行数出しておく
 set number
 syntax on
-set paste
 
 "移動
 noremap <C-w>h 5<C-w><
@@ -66,7 +65,7 @@ let g:neocomplete#enable_at_startup = 1 "起動時に有効
 let g:neocomplete#enable_smart_case = 1 "大文字が入力されるまで大文字小文字の区別を無視
 let g:neocomplete#sources#syntax#min_keyword_length = 3 "キャッシュされる用になる最小の文字数
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr>x neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr>x neocomplete#smart_close_popup()."\<C-h>"
 
 " ruby
 au BufNewFile *.rb 0r ~/.vim/template/ruby.txt
