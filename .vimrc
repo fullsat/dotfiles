@@ -43,13 +43,15 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "# 以下は必要に応じて追加
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet.vim'
+"NeoBundle 'Shougo/neosnippet.vim'
 
 NeoBundle 'ekalinin/Dockerfile.vim'
 
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
+
+NeoBundle 'fatih/vim-go'
 
 " HTML 関係のプラグイン
 NeoBundle 'surround.vim'
@@ -61,11 +63,16 @@ filetype plugin indent on
 NeoBundleCheck
 
 "#######補完########
-let g:neocomplete#enable_at_startup = 1 "起動時に有効
-let g:neocomplete#enable_smart_case = 1 "大文字が入力されるまで大文字小文字の区別を無視
-let g:neocomplete#sources#syntax#min_keyword_length = 3 "キャッシュされる用になる最小の文字数
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"let g:neocomplete#enable_at_startup = 1 "起動時に有効
+"let g:neocomplete#enable_smart_case = 1 "大文字が入力されるまで大文字小文字の区別を無視
+"let g:neocomplete#sources#syntax#min_keyword_length = 3 "キャッシュされる用になる最小の文字数
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 "inoremap <expr>x neocomplete#smart_close_popup()."\<C-h>"
+
+let g:go_version_warning = 0
+let g:go_fmt_fail_silently = 0
+let g:go_fmt_options = 0
+let g:go_doc_keywordprg_enabled = 0
 
 " ruby
 au BufNewFile *.rb 0r ~/.vim/template/ruby.txt
@@ -84,4 +91,3 @@ nmap <C-c> :GtagsCursor<CR>
 nmap <C-k> :Gtags -r <C-r><C-w><CR>
 nmap <C-l> :cn<CR>
 nmap <C-h> :cp<CR>
-
