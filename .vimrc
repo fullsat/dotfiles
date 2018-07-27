@@ -91,3 +91,6 @@ nmap <C-c> :GtagsCursor<CR>
 nmap <C-k> :Gtags -r <C-r><C-w><CR>
 nmap <C-l> :cn<CR>
 nmap <C-h> :cp<CR>
+
+" コメントアウトの色
+hi Comment ctermfg=cyan
