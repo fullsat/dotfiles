@@ -87,6 +87,7 @@ setopt auto_cd
 setopt no_tify
 
 # alias ls="ls --color=auto"
+alias ls="ls --color"
 alias ll="ls -l"
 alias la="ls -la"
 alias po="popd"
