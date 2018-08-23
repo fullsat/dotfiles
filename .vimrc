@@ -1,3 +1,7 @@
+"ファイルタイプのON/OFFは最初と最後で行う
+filetype off
+filetype plugin indent off
+
 "Tabをスペース2つに変更
 set tabstop=2
 set autoindent
@@ -29,7 +33,6 @@ noremap zo v<S-g>zO
 "######NeoBundle##########
 "viと互換しない
 set nocompatible
-filetype plugin indent off
 
 "neobundle管理下のプラグインをruntimepath(プラグインの場所)に追加
 if has('vim_starting')
@@ -54,12 +57,12 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'fatih/vim-go'
 
 " HTML 関係のプラグイン
+NeoBundle 'fatih/vim-go'
+
+" HTML 関係のプラグイン
 NeoBundle 'surround.vim'
 
 call neobundle#end()
-
-filetype plugin indent on
-
 NeoBundleCheck
 
 "#######補完########
@@ -94,3 +97,10 @@ nmap <C-h> :cp<CR>
 
 " コメントアウトの色
 hi Comment ctermfg=cyan
+
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
+
+"ファイルタイプのON/OFFは最初と最後で行う
+filetype plugin indent on
