@@ -57,9 +57,6 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'fatih/vim-go'
 
 " HTML 関係のプラグイン
-NeoBundle 'fatih/vim-go'
-
-" HTML 関係のプラグイン
 NeoBundle 'surround.vim'
 
 call neobundle#end()
